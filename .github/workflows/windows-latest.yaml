@@ -8,14 +8,17 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    name: run R script
+    name: windows-latest
     steps:
       - uses: actions/checkout@v3
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: 'release'
-      - run: Rscript -e 'print("hello")'
+
+      - name: hello world
+        run: print("hello")
+        shell: Rscript {0}
 
       - name: Install pak
         run: |
