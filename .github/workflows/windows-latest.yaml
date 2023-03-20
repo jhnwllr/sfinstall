@@ -20,16 +20,16 @@ jobs:
         run: print("hello")
         shell: Rscript {0}
 
-      - name: Install pak
+      - name: check rtools
         run: |
-          install.packages("pak", repos = "https://r-lib.github.io/p/pak/devel/")
-        shell: Rscript {0}
+          install.packages("devtools")
+          devtools::find_rtools()
 
       - name: install sf
         run: |
-          # pak::local_system_requirements("ubuntu", "20.04", execute = TRUE, sudo = TRUE, echo = TRUE)
-          pak::pkg_install("sf")
+          install.packages("sf")
           library(sf)
           nc <- st_read(system.file("shape/nc.shp", package="sf"))
           class(nc)
+
         shell: Rscript {0}

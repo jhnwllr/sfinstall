@@ -25,7 +25,7 @@ jobs:
       - name: install sf
         run: |
           pak::local_system_requirements("ubuntu", "20.04", execute = TRUE, sudo = TRUE, echo = TRUE)
-          pak::pkg_install("sf")
+          install.packages("sf")
           library(sf)
           nc <- st_read(system.file("shape/nc.shp", package="sf"))
           class(nc)
