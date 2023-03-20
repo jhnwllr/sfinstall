@@ -33,3 +33,10 @@ jobs:
           nc <- st_read(system.file("shape/nc.shp", package="sf"))
           class(nc)
         shell: Rscript {0}
+
+      - name: Session info
+        run: |
+          options(width = 100)
+          pkgs <- installed.packages()[, "Package"]
+          utils::sessionInfo(pkgs)
+        shell: Rscript {0}
