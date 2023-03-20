@@ -22,8 +22,9 @@ jobs:
 
       - name: check rtools
         run: |
-          install.packages("devtools")
-          devtools::find_rtools()
+            install.packages("devtools")
+            devtools::find_rtools()
+        shell: Rscript {0}
 
       - name: install sf
         run: |
@@ -31,5 +32,4 @@ jobs:
           library(sf)
           nc <- st_read(system.file("shape/nc.shp", package="sf"))
           class(nc)
-
         shell: Rscript {0}
