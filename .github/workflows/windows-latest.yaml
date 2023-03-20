@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     name: run R script
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
 
       - name: install sf
         run: |
-          pak::local_system_requirements("ubuntu", "20.04", execute = TRUE, sudo = TRUE, echo = TRUE)
+          # pak::local_system_requirements("ubuntu", "20.04", execute = TRUE, sudo = TRUE, echo = TRUE)
           pak::pkg_install("sf")
           library(sf)
           nc <- st_read(system.file("shape/nc.shp", package="sf"))
