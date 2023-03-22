@@ -22,8 +22,9 @@ jobs:
 
       - name: check rtools
         run: |
-            install.packages("devtools")
-            devtools::find_rtools()
+            install.packages("pkgbuild")
+            pkgbuild::check_rtools(debug = TRUE)
+            pkgbuild::rtools_path()
         shell: Rscript {0}
 
       - name: install sf
